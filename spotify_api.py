@@ -5,14 +5,7 @@ import spotipy
 import base64
 from spotipy.oauth2 import SpotifyClientCredentials #To access authorised Spotify data
 import spotipy.util as util
-#from configs import SPOTIFY_USER_ID, CLIENT_ID,CLIENT_SECRET
 import datetime
-
-
-# user_id = (SPOTIFY_USER_ID)
-# client_id = (CLIENT_ID)
-# client_secret = (CLIENT_SECRET)
-
 
 user_id = os.environ['SPOTIFY_USER_ID']
 client_id = os.environ['CLIENT_ID']
