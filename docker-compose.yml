@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  spotiifier:
+    image: spotiifier
+    build:
+      context: .
+      dockerfile: ./Dockerfile
