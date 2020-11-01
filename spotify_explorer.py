@@ -32,6 +32,8 @@ if __name__ == "__main__":
 
 
         st.table(df2)
+        
+        
 
 
      
