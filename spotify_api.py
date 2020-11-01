@@ -136,14 +136,11 @@ class SpotifyAPI(object):
         #print("QUERY IS ", query)
 
         response = requests.get(query, headers={"Content-type":"application/json", "Authorization":f"Bearer {access_token}"})
-        #response = requests.get(query)
-        #print(response.json())
         json_response = response.json()
         #print(json_response)
         if response:
             print("Reccomended songs")
             for i,j  in enumerate(json_response['tracks']):
-                #uris.append(j['uri'])
                 track_name = j['name']
                 artist_name = j['artists'][0]['name']
                 link = j['artists'][0]['external_urls']['spotify']
@@ -153,5 +150,3 @@ class SpotifyAPI(object):
                 all_recs.append(reccs)
             return all_recs
             
-            #     reccs = j['name'] + " by " + j['artists'][0]['name']
-            # return reccs

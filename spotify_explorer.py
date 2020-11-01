@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
         st.table(df2)
         
-        
+        st.text_area("https://github.com/vishwanath79/spotifier")
 
 
      
