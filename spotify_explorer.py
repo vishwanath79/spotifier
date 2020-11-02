@@ -33,7 +33,10 @@ if __name__ == "__main__":
 
         st.table(df2)
         
-        st.text_area("https://github.com/vishwanath79/spotifier")
+        
+        link = '[GitHub](https://github.com/vishwanath79/spotifier)'
+        st.markdown(link, unsafe_allow_html=True)
+   
 
 
      
