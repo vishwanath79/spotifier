@@ -26,3 +26,7 @@ docker run -ti spotifyapp:latest
 To run the app, run:
 
 streamlit run spotify_explorer.py
+
+
+
+
