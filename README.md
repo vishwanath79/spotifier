@@ -9,7 +9,7 @@
 
 ## About <a name = "about"></a>
 
-Uses the Spotify API for reccomendations based on search term (for artist, song or album). Deployed on Azure.
+Uses the Spotify API for reccomendations based on search term (for artist, song or album).
 
 Deployed at: https://spotifyreccs.azurewebsites.net/
 
