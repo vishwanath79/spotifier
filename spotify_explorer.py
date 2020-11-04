@@ -9,7 +9,6 @@ import time
 if __name__ == "__main__":
     st.title('Spotify Explorer')
     client = SpotifyAPI(client_id,client_secret)
-    #print(client.access_token)
     stsearch = st.text_input("Enter the search item (song/artist/album or track) you want to search for")
     
     if stsearch != "":
