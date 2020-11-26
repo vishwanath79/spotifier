@@ -26,13 +26,7 @@ if __name__ == "__main__":
         reccs = client.get_reccomended_songs(limit=add_selectbox,seed_artists = str(artistid),seed_tracks=str(trackid))
         st.text('Spotify Recommends...')
         df2 = pd.DataFrame(reccs, columns=["Songs","Artists","Link"]).rename_axis('Index', axis=1)
-        
-
-
-
         st.table(df2)
-        
-        
         link = '[GitHub](https://github.com/vishwanath79/spotifier)'
         st.markdown(link, unsafe_allow_html=True)
    
