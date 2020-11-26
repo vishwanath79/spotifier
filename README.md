@@ -11,7 +11,7 @@
 
 Uses the Spotify API for reccomendations based on search term (for artist, song or album).
 
-Deployed at: https://spotifyreccs.azurewebsites.net/
+
 
 
 
