@@ -5,6 +5,7 @@
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
+- [Deployed at](#deploy)
 
 
 ## About <a name = "about"></a>
@@ -26,6 +27,10 @@ docker run -ti spotifyapp:latest
 To run the app, run:
 
 streamlit run spotify_explorer.py
+
+## Deployed at <a name = "deploy"></a>
+
+https://spotiapp2.azurewebsites.net/
 
 
 
