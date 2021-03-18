@@ -25,9 +25,9 @@ RUN bash -c 'echo -e "\
 	enableCORS = false\n\
 	" > /root/.streamlit/config.toml'
 
-EXPOSE 8501
+EXPOSE 80
 #EXPOSE 8080
-
+#8501
 
 
 # Switching to a non-root user, please refer to https://aka.ms/vscode-docker-python-user-rights
