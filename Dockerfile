@@ -32,7 +32,8 @@ EXPOSE 80
 
 # Switching to a non-root user, please refer to https://aka.ms/vscode-docker-python-user-rights
 
-CMD ["streamlit", "run", "spotify_explorer.py"]
+ENTRYPOINT ["streamlit", "run"]
+CMD ["spotify_explorer.py"]
 
 
 
