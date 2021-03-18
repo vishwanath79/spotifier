@@ -25,7 +25,7 @@ RUN bash -c 'echo -e "\
 	enableCORS = false\n\
 	" > /root/.streamlit/config.toml'
 
-EXPOSE 80
+EXPOSE 8501
 #EXPOSE 8080
 #8501
 
