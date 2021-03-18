@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED=1
 
 
 
-COPY . /app
+
 WORKDIR /app
 #ADD . /app
 
@@ -26,15 +26,15 @@ RUN bash -c 'echo -e "\
 	" > /root/.streamlit/config.toml'
 
 EXPOSE 8501
-EXPOSE 8080
+COPY . /app
 
 
 
 # Switching to a non-root user, please refer to https://aka.ms/vscode-docker-python-user-rights
 
-CMD ["streamlit", "run", "--server.port", "8080","spotify_explorer.py"]
+CMD ["streamlit", "run"]
 
-#CMD [spotify_explorer.py"]
+CMD ["spotify_explorer.py"]
 
 
 
