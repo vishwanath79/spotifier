@@ -13,6 +13,14 @@ variables:
   dockerRegistryServiceConnection: 'd674e1c7-3dbe-49ae-a199-e5f84b5dbf53'
   imageRepository: 'spotify'
   containerRegistry: 'spotifyexplorer.azurecr.io'
+- task: AzureWebAppContainer@1
+  inputs:
+    azureSubscription: 'Pay-As-You-Go Dev/Test(5)(cce08926-339f-4d27-a817-998612fd5a33)'
+    appName: 'spotiapp'
+    deployToSlotOrASE: true
+    resourceGroupName: 'spotify'
+    slotName: 'production'
+    containers: 'spotifyimage'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
   
