@@ -11,6 +11,8 @@ user_id = os.environ['SPOTIFY_USER_ID']
 client_id = os.environ['CLIENT_ID']
 client_secret = os.environ['CLIENT_SECRET']
 
+
+
 scope = 'user-top-read'
 
 class SpotifyAPI(object):
