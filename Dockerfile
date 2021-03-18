@@ -8,14 +8,14 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 
-COPY . /app
 
+COPY . /app
 WORKDIR /app
 #ADD . /app
 
 # Install pip requirements
 #ADD requirements.txt .
-RUN python -m pip3 install -r requirements.txt
+RUN python -m pip install -r requirements.txt
 
 # --------------- Configure Streamlit ---------------
 RUN mkdir -p /root/.streamlit
@@ -26,7 +26,7 @@ RUN bash -c 'echo -e "\
 	" > /root/.streamlit/config.toml'
 
 EXPOSE 8501
-
+#EXPOSE 8080
 
 
 
