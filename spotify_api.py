@@ -28,7 +28,7 @@ class SpotifyAPI(object):
         self.client_id = client_id
         self.client_secret = client_secret
 
-    def get_client_credentials(self):
+    def get_client_credentials(self): #Given a client id and client secret, gets client credentials from the Spotify API.
         ''' Returns a base64 encoded string '''
         client_id = self.client_id
         client_secret = self.client_secret
@@ -50,7 +50,7 @@ class SpotifyAPI(object):
     }
 
 
-    def perform_auth(self):
+    def perform_auth(self): # perform auth only if access token has expired
         token_url = self.token_url
         token_data = self.get_token_data()
         token_headers = self.get_token_header()
@@ -58,9 +58,7 @@ class SpotifyAPI(object):
         r = requests.post(token_url, data=token_data,headers=token_headers)
         
         if r.status_code not in range(200,299):
-            #print(r.status_code)
             print("Could not authenticate client")
-            #return False
         data = r.json()
         now = datetime.datetime.now()
         access_token = data["access_token"]
@@ -84,7 +82,7 @@ class SpotifyAPI(object):
             return self.get_access_token()
         return token
     
-    def search(self, query,search_type="artist"):
+    def search(self, query,search_type="artist"): #search for an artist/track based on a search type provided
         access_token =self.get_access_token()
         headers = { "Content-Type":"application/json", "Authorization": f"Bearer { access_token}"}
         search_url = "https://api.spotify.com/v1/search?"
@@ -92,8 +90,6 @@ class SpotifyAPI(object):
         from urllib.parse import urlencode
         search_url_formatted = urlencode(data)
         search_r = requests.get(search_url+search_url_formatted, headers=headers)
-        #print(search_url+search_url_formatted)
-        #print(search_r.status_code)
         if search_r.status_code not in range(200,299):
             print("Encountered isse=ue")
             return search_r.json()
@@ -105,7 +101,6 @@ class SpotifyAPI(object):
         resp =self.search(query, search_type)
         all = []
         for i in range(len(resp['tracks']['items'])):
-            #print(f"Album name: {resp['tracks']['items'][i]}")
             track_name = resp['tracks']['items'][i]['name']
             track_id = resp['tracks']['items'][i]['id']
             artist_name = resp['tracks']['items'][i]['artists'][0]['name']
@@ -113,13 +108,14 @@ class SpotifyAPI(object):
             album_name =resp['tracks']['items'][i]['album']['name']
             images = resp['tracks']['items'][i]['album']['images'][0]['url']
 
-            #print(f" {i} Track name: {track_name} Artist name: {artist_name} Album Name: {album_name} Artist ID: {artist_id} Track Id: {track_id} ")
             raw = [track_name, track_id, artist_name, artist_id, images]
             all.append(raw)
             
         return all
 
-    def get_reccomended_songs(self, limit=5,seed_artists = '5xQKoGD7Ql92fWd1uWwKkf',seed_tracks='004ZH9ISUSEwansKKbUdJs',market = "US",
+
+
+    def get_reccomended_songs(self, limit=5,seed_artists = '',seed_tracks='',market = "US",
         seed_genres = "rock", target_danceability=0.1):
         access_token =self.get_access_token()
         endpoint_url = "https://api.spotify.com/v1/recommendations?"
@@ -135,8 +131,7 @@ class SpotifyAPI(object):
         query = f'{endpoint_url}limit={limit}&market={market}&seed_genres={seed_genres}&target_danceability={target_danceability}'
         query += f'&seed_artists={seed_artists}'
         query += f'&seed_tracks={seed_tracks}'
-        #print("QUERY IS ", query)
-
+     
         response = requests.get(query, headers={"Content-type":"application/json", "Authorization":f"Bearer {access_token}"})
         json_response = response.json()
         #print(json_response)
