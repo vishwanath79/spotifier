@@ -85,6 +85,7 @@ class SpotifyAPI(object):
     def search(self, query,search_type="artist"): #search for an artist/track based on a search type provided
         access_token =self.get_access_token()
         headers = { "Content-Type":"application/json", "Authorization": f"Bearer { access_token}"}
+        # using the  search API at https://developer.spotify.com/documentation/web-api/reference/search/search/
         search_url = "https://api.spotify.com/v1/search?"
         data = {"q": query, "type": search_type.lower()}
         from urllib.parse import urlencode
@@ -95,7 +96,7 @@ class SpotifyAPI(object):
             return search_r.json()
         return search_r.json()
 
-        #https://developer.spotify.com/documentation/web-api/reference/search/search/
+      
 
     def get_meta(self, query, search_type="track"):
         resp =self.search(query, search_type)
